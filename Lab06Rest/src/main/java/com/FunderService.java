@@ -1,7 +1,7 @@
 package com;
 
 
-import model.Item;
+import model.Funders;
 
 //For REST Service
 import javax.ws.rs.*;
@@ -15,10 +15,10 @@ import org.jsoup.*;
 import org.jsoup.parser.*;
 import org.jsoup.nodes.Document;
 
-@Path("/Items")
-public class ItemService
+@Path("/Funds")
+public class FunderService
 {
-		Item itemObj = new Item();
+		Funders itemObj = new Funders();
 		@GET
 		@Path("/")
 		@Produces(MediaType.TEXT_HTML)
