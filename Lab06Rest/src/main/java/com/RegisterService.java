@@ -75,5 +75,17 @@ public class RegisterService
 		 String output = regObj.deleteItem(itemID);
 		return output;
 		}
-
+		
+		
+		
+		@GET
+	    @Path("/Email/{userEmail}/Password/{userPassword}")
+		//@Consumes(MediaType.APPLICATION_JSON)
+	    @Produces(MediaType.TEXT_HTML)
+	    public String userLogin(@PathParam("userEmail") String email,
+				@PathParam("userPassword") String password) {
+			
+				return regObj.getUser(email,password);
+			
+	    }
 }

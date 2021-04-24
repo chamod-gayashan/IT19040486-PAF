@@ -194,4 +194,39 @@ public class RegisterFunder
 		} 
 		return output; 
 	} 
+	
+	
+	
+	public String getUser(String email,String password)
+    {
+        String output = "";
+        try
+        {
+            Connection con = connect();
+       
+            //create a prepard statment
+        String query = "select * from funders where userEmail = '" + email +"' AND userPassword = '" + password + "'";
+        
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery(query);
+       
+        if(rs.next()==true)
+        {
+       	 
+       	 output+="Loging Succsessful!";
+           
+        }
+        else {
+       	 output+="No user matching type";
+        }
+        con.close();
+       
+    }
+    catch (Exception e)
+    {
+        output = "Error while reading Users.";
+        System.err.println(e.getMessage());
+    }
+        return output;
+    }
 } 
